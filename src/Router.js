@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import StartSequence from './sequences/StartSequence';
+import StartSequence from './sequences/StartSequence/StartSequence';
 import interactiveSequence from './sequences/InteractiveSequence/InteractiveSequence';
 import winSequence from './sequences/winSequence';
 import outroSequence from './sequences/outroSequence';

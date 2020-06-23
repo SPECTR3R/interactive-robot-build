@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import './styles.scss'
+import  './styles.scss'
 
 import { TimelineLite, Power2, TweenMax, Bounce } from 'gsap';
 import { useHistory } from 'react-router-dom';
