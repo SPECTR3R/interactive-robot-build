@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import '../styles.scss';
-import SvgHangerBackgroud from '../imageComponents/SvgHangerBackground';
+ import SvgHangerBackgroud from '../imageComponents/SvgHangerBackground';
 import { Draggable } from 'gsap/all';
 import { gsap } from 'gsap';
 
