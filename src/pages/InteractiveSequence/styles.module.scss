@@ -1,0 +1,48 @@
+.main {
+  width: 100%;
+  height: 97vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+  }
+}
+
+.backgroundContainer {
+  width: 1023px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 17px 17px 17px 17px;
+  -moz-border-radius: 17px 17px 17px 17px;
+  -webkit-border-radius: 17px 17px 17px 17px;
+
+  border: 5px solid #c4c4c4;
+  &:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    right: 0;
+  }
+}
+
+.bkgImg1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.bkgImg2 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.draggable {
+  display: none;
+}
