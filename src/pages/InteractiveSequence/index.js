@@ -1,38 +1,50 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './styles.module.scss';
 
-import { TimelineLite, Power2, TweenMax, Bounce } from 'gsap';
+import { TimelineLite, Power3, Power2, TweenMax, Bounce } from 'gsap';
 import { useHistory } from 'react-router-dom';
+import { Draggable } from 'gsap/all';
 
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import SvgHangerBackground from '../../imageComponents/SvgHangerBackground';
-import SvgStartOverlayBoxLarge from '../../imageComponents/SvgStartOverlayBoxLarge';
+import { addBounceEffect } from '../helperFunctions';
 
 const StartSequence = () => {
   let container = useRef(null);
-  let startButton = useRef(null);
-  let startBox = useRef(null);
+  let head = useRef(null);
+  let torso = useRef(null);
+  let leg1 = useRef(null);
+  let leg2 = useRef(null);
+  let arm1 = useRef(null);
+  let arm2 = useRef(null);
+  let chest = useRef(null);
+  let instructionBox = useRef(null);
 
   const imageReveal = CSSRulePlugin.getRule(`.${styles.backgroundContainer}:after`);
+
   const tl = new TimelineLite();
-  const history = useHistory();
 
   useEffect(() => {
+    const draggables = [head, leg1, leg2, arm1, arm2, chest];
     tl.to(container, 0, { css: { visibility: 'visible' } });
-    tl.to(startBox, 0, { duration: 0.6, opacity: 0, scale: 0, svgOrigin: '675 143' });
-    tl.to(imageReveal, 1.4, { width: '0%', ease: Power2.easeInOut });
-    tl.to(startBox, 2, { duration: 0.6, opacity: 100, scale: 1, svgOrigin: '675 143' });
-    startButton.addEventListener('mouseover', () => {
-      TweenMax.to(startButton, 0.4, { scale: 1.2, x: -10, y: -10, ease: Bounce.easeOut });
-    });
-    startButton.addEventListener('mouseout', () => {
-      TweenMax.to(startButton, 0.4, { scale: 1, x: 10, y: 10, ease: Bounce.easeOut });
-    });
-    startButton.addEventListener('click', () => {
-      history.push('/interactiveSequence');
+    tl.to(draggables, 0, { opacity: 0, scale: 1, y: -900 });
+    tl.to(instructionBox, 0, { opacity: 0, scale: 0, y: 0 });
+
+    tl.to(imageReveal, 0.8, { width: '0%', ease: Power2.easeInOut });
+    tl.to(instructionBox, 0.8, { opacity: 100, scale: 1, y: 0 });
+    tl.staggerTo(draggables, 0.8, { opacity: 100, scale: 1, y: 0 }, 0.2);
+
+    addBounceEffect(draggables);
+
+    Draggable.create(draggables, {
+      bounds: container,
+      type: 'x,y',
+      onPress: function () {
+        console.log('clicked');
+      },
     });
   });
-  console.log(styles.backgroundContainer);
+
   return (
     <section className={styles.main}>
       <div className={styles.container} ref={el => (container = el)}>
@@ -42,12 +54,15 @@ const StartSequence = () => {
               <SvgHangerBackground
                 classNames={styles}
                 className={styles.bkgImg1}
+                headRef={el => (head = el)}
+                torsoRef={el => (torso = el)}
+                leg1Ref={el => (leg1 = el)}
+                leg2Ref={el => (leg2 = el)}
+                arm1Ref={el => (arm1 = el)}
+                arm2Ref={el => (arm2 = el)}
+                chestRef={el => (chest = el)}
+                instructionBoxRef={el => (instructionBox = el)}
               ></SvgHangerBackground>
-              <SvgStartOverlayBoxLarge
-                boxref={el => (startBox = el)}
-                buttonref={el => (startButton = el)}
-                className={styles.bkgImg2}
-              ></SvgStartOverlayBoxLarge>
             </div>
           </div>
         </>

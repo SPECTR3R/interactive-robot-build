@@ -20,8 +20,8 @@ const StartSequence = () => {
   useEffect(() => {
     tl.to(container, 0, { css: { visibility: 'visible' } });
     tl.to(startBox, 0, { duration: 0.6, opacity: 0, scale: 0, svgOrigin: '675 143' });
-    tl.to(imageReveal, 1.4, { width: '0%', ease: Power2.easeInOut });
-    tl.to(startBox, 2, { opacity: 100, scale: 1, svgOrigin: '675 143' });
+    tl.to(imageReveal, 1, { width: '0%', ease: Power2.easeInOut });
+    tl.to(startBox, 1, { opacity: 100, scale: 1, svgOrigin: '675 143' });
     startButton.addEventListener('mouseover', () => {
       TweenMax.to(startButton, 0.4, { scale: 1.2, x: -10, y: -10, ease: Bounce.easeOut });
     });
@@ -29,14 +29,12 @@ const StartSequence = () => {
       TweenMax.to(startButton, 0.4, { scale: 1, x: 10, y: 10, ease: Bounce.easeOut });
     });
     startButton.addEventListener('click', () => {
-      tl.to(startBox, 2, { duration: 0.6, opacity: 0, scale: 0, svgOrigin: '675 143' });
-
+      tl.to(startBox, 1, { duration: 0.6, opacity: 0, scale: 0, svgOrigin: '675 143' });
       setTimeout(function () {
         history.push('/interactiveSequence');
-      }, 2000);
+      }, 1000);
     });
   });
-  console.log(styles.backgroundContainer);
   return (
     <section className={styles.main}>
       <div className={styles.container} ref={el => (container = el)}>

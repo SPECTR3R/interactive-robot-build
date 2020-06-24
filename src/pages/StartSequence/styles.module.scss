@@ -18,8 +18,7 @@
   overflow: hidden;  border-radius: 17px 17px 17px 17px;
   -moz-border-radius: 17px 17px 17px 17px;
   -webkit-border-radius: 17px 17px 17px 17px;
-  border: 5px solid #c4c4c4;
-  &:after {
+   &:after {
     position: absolute;
     content: "";
     width: 100%;
@@ -46,5 +45,9 @@
 }
 
 .draggable {
-  display: none;
+  visibility: hidden;
+
 }
+
+
+.intructions{visibility: hidden;}
