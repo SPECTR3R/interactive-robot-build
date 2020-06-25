@@ -2,16 +2,14 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import StartSequence from './pages/StartSequence';
-import interactiveSequence from './pages/InteractiveSequence';
-//import winSequence from './pages/winSequence';
-//import outroSequence from './pages/outroSequence';
-
+import InteractiveSequence from './pages/InteractiveSequence';
+ import OutroSequence from './pages/OutroSequence/index.js'
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact component={StartSequence} path="/"/>
-      <Route exact component={interactiveSequence} path="/interactiveSequence" />
-
+      <Route exact component={StartSequence} path="/" />
+      <Route exact component={InteractiveSequence} path="/interactiveSequence" />
+      <Route exact component={OutroSequence} path="/outroSequence" />
     </Switch>
   </BrowserRouter>
 );

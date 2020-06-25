@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import SvgHangerBackground from '../../imageComponents/SvgHangerBackground';
-import SvgStartOverlayBoxLarge from '../../imageComponents/SvgStartOverlayBoxLarge';
+import SvgStartOverlayBoxLarge from '../../imageComponents/SvgStartOverlay';
 
 const StartSequence = () => {
   let container = useRef(null);

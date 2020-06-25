@@ -10,3 +10,5 @@ export const addBounceEffect = arr =>
       TweenMax.to(el, 0.4, { scale: 1, ease: Bounce.easeOut });
     });
   });
+
+

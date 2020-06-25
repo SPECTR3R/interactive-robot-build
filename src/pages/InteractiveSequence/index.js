@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './styles.module.scss';
 
-import { TimelineLite, Power3, Power2, TweenMax, Bounce } from 'gsap';
+import { TimelineLite, Power2 } from 'gsap';
 import { useHistory } from 'react-router-dom';
 import { Draggable } from 'gsap/all';
 
@@ -9,7 +9,7 @@ import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import SvgHangerBackground from '../../imageComponents/SvgHangerBackground';
 import { addBounceEffect } from '../helperFunctions';
 
-const StartSequence = () => {
+const InteractiveSequence = () => {
   let snapCount = 0;
   let container = useRef(null);
   let head = useRef(null);
@@ -21,7 +21,7 @@ const StartSequence = () => {
   let instructionBox = useRef(null);
 
   const imageReveal = CSSRulePlugin.getRule(`.${styles.backgroundContainer}:after`);
-
+  const history = useHistory();
   const tl = new TimelineLite();
 
   useEffect(() => {
@@ -47,8 +47,6 @@ const StartSequence = () => {
         return Math.round(value / 90) * 90;
       },
       onDragEnd: function () {
-
-
         switch (this.target.id) {
           case 'head':
             if (this.x === -671.7008797653959 && this.y === -472.73460410557175) {
@@ -72,7 +70,7 @@ const StartSequence = () => {
             break;
 
           case 'leg2':
-            if (this.x === -431.20234604105576  && this.y === 114.8020527859237) {
+            if (this.x === -431.20234604105576 && this.y === 114.8020527859237) {
               snapCount++;
               this.dragResistance = 1;
             }
@@ -90,15 +88,15 @@ const StartSequence = () => {
               this.dragResistance = 1;
             }
             break;
-
           default:
             break;
         }
 
-        console.log(this.target.id,snapCount)
-        console.log(this.x, ',y:', this.y);
-
-
+        if (snapCount >= 6) {
+          setTimeout(function () {
+            history.push('/OutroSequence');
+          }, 1000);
+        }
       },
       onPress: function () {
         switch (this.target.id) {
@@ -152,4 +150,4 @@ const StartSequence = () => {
   );
 };
 
-export default StartSequence;
+export default InteractiveSequence;

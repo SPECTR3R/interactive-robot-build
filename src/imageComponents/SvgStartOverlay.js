@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgStartOverlayBoxLarge({boxref,buttonref,...props}) {
+function SvgStartOverlay({boxref,buttonref,...props}) {
    return (
     <svg ref={boxref} viewBox="0 0 1920 1080" {...props}>
       <style>
@@ -919,5 +919,5 @@ function SvgStartOverlayBoxLarge({boxref,buttonref,...props}) {
   );
 }
 
-export default SvgStartOverlayBoxLarge;
+export default SvgStartOverlay;
 
