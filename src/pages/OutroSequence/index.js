@@ -35,7 +35,11 @@ const OutroSequence = () => {
                 boxref={el => (startBox = el)}
                 className={styles.bkgImg2}
               ></SvgFeedbackOverlay>
-              <a href="/">
+              <a
+                href="https://simpleshowinteractive.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <div ref={el => (restartLinkBox = el)} className={styles.restartLink}></div>
               </a>
             </div>

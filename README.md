@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Developer Assessment
 
-## Available Scripts
+This project is a technical test to apply for a developer position at [simpleshowinteractive.com](https://simpleshowinteractive.com/)
 
-In the project directory, you can run:
+## Requirements
 
-### `yarn start`
+To run this project, please:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Fork this repo
+- Clone this repo
+- In the terminal, run:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  ```
+  yarn install
+  yarn start
+  ```
 
-### `yarn test`
+## Objective
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Build an interactive app that supports Drag & Drop feature of the provided assets, using any technology, framework, or library. The assets consist of svg files of the background of a technical facility and a mech suit in pieces.The interaction is to have the user Drag & Drop each individual part of the mech suit until the full robot is complete.
 
-### `yarn build`
+## Result
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I created the app using React for the logic and [gsap](https://greensock.com/gsap/) for the animation. I implemented the agile methodology known as kanban, hitting a Development time of 28 hours, you can view my board [here](https://trello.com/b/d3WIADe8/simpleshow-dev-test). The result looks like this:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<div style="display: flex; justify-content: center">
+  <img src="./public/result.gif" width="600px" />
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deployed Site
 
-### `yarn eject`
+I used vercel to deploy the app to the world. You can visit it [here](https://simpleshow-dev-test.vercel.app).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contact me!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I'm open for bussiness, reach me on:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Site: [adrio.now.sh](https://adrio.now.sh/)
+- Email: [d-rio@outlook.com](https://d-rio@outlook.com/)
+- Phone (Mexico): +52 55 3735 5309
+- [LinkedIn](https://www.linkedin.com/in/adrio1992/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Developed in Mexico by Armando del Río (SPECTER-B)
