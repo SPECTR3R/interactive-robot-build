@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './styles.module.scss';
 
 import { TimelineLite, Power3, Power2, TweenMax, Bounce } from 'gsap';
@@ -10,9 +10,9 @@ import SvgHangerBackground from '../../imageComponents/SvgHangerBackground';
 import { addBounceEffect } from '../helperFunctions';
 
 const StartSequence = () => {
+  let snapCount = 0;
   let container = useRef(null);
   let head = useRef(null);
-  let torso = useRef(null);
   let leg1 = useRef(null);
   let leg2 = useRef(null);
   let arm1 = useRef(null);
@@ -39,8 +39,90 @@ const StartSequence = () => {
     Draggable.create(draggables, {
       bounds: container,
       type: 'x,y',
+      liveSnap: {
+        points: [],
+        radius: 50,
+      },
+      snap: function (value) {
+        return Math.round(value / 90) * 90;
+      },
+      onDragEnd: function () {
+
+
+        switch (this.target.id) {
+          case 'head':
+            if (this.x === -671.7008797653959 && this.y === -472.73460410557175) {
+              snapCount++;
+              this.dragResistance = 1;
+            }
+            break;
+
+          case 'chest':
+            if (this.x === -690.2052785923752 && this.y === -89.60410557184741) {
+              snapCount++;
+              this.dragResistance = 1;
+            }
+            break;
+
+          case 'leg1':
+            if (this.x === -458.8929618768327 && this.y === 118.13049853372422) {
+              snapCount++;
+              this.dragResistance = 1;
+            }
+            break;
+
+          case 'leg2':
+            if (this.x === -431.20234604105576  && this.y === 114.8020527859237) {
+              snapCount++;
+              this.dragResistance = 1;
+            }
+            break;
+
+          case 'arm1':
+            if (this.x === -1071.6642228739001 && this.y === -68.33577712609963) {
+              snapCount++;
+              this.dragResistance = 1;
+            }
+            break;
+          case 'arm2':
+            if (this.x === -853.4970674486806 && this.y === -72.11876832844564) {
+              snapCount++;
+              this.dragResistance = 1;
+            }
+            break;
+
+          default:
+            break;
+        }
+
+        console.log(this.target.id,snapCount)
+        console.log(this.x, ',y:', this.y);
+
+
+      },
       onPress: function () {
-        console.log('clicked');
+        switch (this.target.id) {
+          case 'head':
+            this.vars.liveSnap.points[0] = { x: -671.7008797653959, y: -472.73460410557175 };
+            break;
+          case 'chest':
+            this.vars.liveSnap.points[0] = { x: -690.2052785923752, y: -89.60410557184741 };
+            break;
+          case 'leg1':
+            this.vars.liveSnap.points[0] = { x: -458.8929618768327, y: 118.13049853372422 };
+            break;
+          case 'leg2':
+            this.vars.liveSnap.points[0] = { x: -431.20234604105576, y: 114.8020527859237 };
+            break;
+          case 'arm1':
+            this.vars.liveSnap.points[0] = { x: -1071.6642228739001, y: -68.33577712609963 };
+            break;
+          case 'arm2':
+            this.vars.liveSnap.points[0] = { x: -853.4970674486806, y: -72.11876832844564 };
+            break;
+          default:
+            break;
+        }
       },
     });
   });
@@ -55,7 +137,6 @@ const StartSequence = () => {
                 classNames={styles}
                 className={styles.bkgImg1}
                 headRef={el => (head = el)}
-                torsoRef={el => (torso = el)}
                 leg1Ref={el => (leg1 = el)}
                 leg2Ref={el => (leg2 = el)}
                 arm1Ref={el => (arm1 = el)}
